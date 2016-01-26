@@ -1,4 +1,4 @@
-# replace the contents of this comment with your name
+# Matthew Aaron Marchetti
 import random
 
 # -------------------------------------------------------------------
@@ -7,7 +7,8 @@ import random
 #   'topLimit' which is the top limit for the random number generator
 # the function returns the random number generated to its caller
 def generateNumber( topLimit ):
-    
+    theNumber = random.randint(1, topLimit)
+    return theNumber
     # TO DO: ####################################################
     # Write code in this function that calculates and           #
     # returns a random number between 1 and the user's topLimit #
@@ -44,7 +45,14 @@ def askUserToGuess( times, secretNumber ):
 #   the 'userGuess' parameter is the answer entered by the user
 #   the 'userSecretNumber' parameter is the randomly generated number
 def evaluateAnswer( userGuess, userSecretNumber ):
-    
+    if userGuess < userSecretNumber:
+        print('Your guess is too low.')
+        return False
+    elif userGuess > userSecretNumber:
+        print('Your guess is too high.')
+        return False
+    else:
+        return True
     # TO DO: ####################################################
     # Write code in this function that compares userGuess and   #
     # userSecretNumber. The code should:                        #
@@ -66,7 +74,14 @@ def evaluateAnswer( userGuess, userSecretNumber ):
 #       True, we'll show the right answer on the screen
 #       False, we won't show the right answer on the screen
 def playGame( showAnswer ):
-    
+    print('Hello, and welcome to the magical number guessing game!') 
+    print('What is the upper range of the numbers you would like to guess?')
+    highRange = int(input())
+    print('How many guesses would you like to have to figure out the number?')
+    totalGuesses =  int(input())
+    theNumber = generateNumber(highRange)
+    print('Okay, now guess a number between 1 and ' + str(highRange) + '.')
+    askUserToGuess( totalGuesses, theNumber )    
     # TO DO: ####################################################
     # Write code in this function that                          #
     # 1. Greets the user                                        #
@@ -93,7 +108,7 @@ def playGame( showAnswer ):
         print('--shhh, the real number is ' + str(theNumber) + '.')
     
     #this gives a sucess/fail message if the user guessed correctly in the allotted attempts
-    if askUserToGuess(totalGuesses,theNumber) == True:
+    if askUserToGuess( totalGuesses,theNumber ) == True:
         print('Good job! You guessed my number!')
     else:
         print('Nope. The number I was thinking of was ' + str(theNumber))

@@ -80,8 +80,7 @@ def playGame( showAnswer ):
     print('How many guesses would you like to have to figure out the number?')
     totalGuesses =  int(input())
     theNumber = generateNumber(highRange)
-    print('Okay, now guess a number between 1 and ' + str(highRange) + '.')
-    askUserToGuess( totalGuesses, theNumber )    
+    print('Okay, now guess a number between 1 and ' + str(highRange) + '.')   
     # TO DO: ####################################################
     # Write code in this function that                          #
     # 1. Greets the user                                        #
